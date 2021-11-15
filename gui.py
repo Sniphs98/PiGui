@@ -47,16 +47,16 @@ def mov_gui():
             break
         if event == "▲":
             y = y + 1
-            print(y)
+            print('x',x,'y',y)
         if event == "▼":
             y = y - 1
-            print(y)
+            print('x',x,'y',y)
         if event == "►":
             x = x + 1
-            print(x)
+            print('x',x,'y',y)
         if event == "◄":
             x = x - 1
-            print(x)
+            print('x',x,'y',y)
 
 
 
