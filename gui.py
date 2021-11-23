@@ -1,4 +1,5 @@
 import PySimpleGUI
+import servo
 
 
 def mov_gui():

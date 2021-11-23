@@ -1,12 +1,24 @@
 import RPi.GPIO as GPIO
 import time
 
-def test():
-    print("test")
+def initialize():
+    GPIO.setmode(GPIO.BOARD)
+
+    GPIO.setup(11,GPIO.OUT)
+    servo1 = GPIO.PWM(11,50)
+    servo1.start(0)
+    time.sleep(2)
+
+
+def servo_left():
+    GPIO.setmode(GPIO.BOARD)
 
 def servo_test():
 # Set GPIO numbering mode
     GPIO.setmode(GPIO.BOARD)
+
+
+
 
     # Set pin 11 as an output, and set servo1 as pin 11 as PWM
     GPIO.setup(11,GPIO.OUT)
@@ -44,6 +56,11 @@ def servo_test():
     servo1.ChangeDutyCycle(0)
 
     #Clean things up at the end
+    servo1.stop()
+    GPIO.cleanup()
+    print ("Goodbye")
+
+def cleanup():
     servo1.stop()
     GPIO.cleanup()
     print ("Goodbye")

@@ -12,9 +12,12 @@ def print_hi(name):
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
+    #servo.initialize()
     # print_hi('PyCharm')
     # gui.mov_gui()
+    #
     servo.servo_test()
+    #servo.cleanup
     
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
