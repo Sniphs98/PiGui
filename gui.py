@@ -1,5 +1,6 @@
 import PySimpleGUI
 import servo
+from servo import servo_left
 
 
 def mov_gui():
@@ -57,6 +58,7 @@ def mov_gui():
             print('x',x,'y',y)
         if event == "◄":
             x = x - 1
+            servo.servo_left()
             print('x',x,'y',y)
 
 

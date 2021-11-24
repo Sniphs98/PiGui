@@ -1,30 +1,23 @@
 import RPi.GPIO as GPIO
 import time
 
-def initialize():
+def servo_left(duty):
     GPIO.setmode(GPIO.BOARD)
-
     GPIO.setup(11,GPIO.OUT)
     servo1 = GPIO.PWM(11,50)
-    servo1.start(0)
-    time.sleep(2)
-
-
-def servo_left():
-    GPIO.setmode(GPIO.BOARD)
-
-def servo_start():
-    GPIO.setup(11,GPIO.OUT)
-    servo1 = GPIO.PWM(11,50)
-
     servo1.start(0)
     print ("Waiting for 2 seconds")
     time.sleep(2)
+    print ("rotating")
+    if(duty <= 12):
+        servo1.ChangeDutyCycle(duty)
+        time.sleep(1)
+    time.sleep(2)
 
-    print ("Turning back to 0 degrees")
-    servo1.ChangeDutyCycle(2)
-    time.sleep(0.5)
-    servo1.ChangeDutyCycle(0)
+    servo1.stop()
+    GPIO.cleanup()
+    print ("Goodbye")
+
 
 
 def servo_test():
@@ -74,8 +67,4 @@ def servo_test():
     GPIO.cleanup()
     print ("Goodbye")
 
-def cleanup():
-    servo1.stop()
-    GPIO.cleanup()
-    print ("Goodbye")
 
