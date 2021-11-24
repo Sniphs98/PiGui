@@ -13,6 +13,20 @@ def initialize():
 def servo_left():
     GPIO.setmode(GPIO.BOARD)
 
+def servo_start():
+    GPIO.setup(11,GPIO.OUT)
+    servo1 = GPIO.PWM(11,50)
+
+    servo1.start(0)
+    print ("Waiting for 2 seconds")
+    time.sleep(2)
+
+    print ("Turning back to 0 degrees")
+    servo1.ChangeDutyCycle(2)
+    time.sleep(0.5)
+    servo1.ChangeDutyCycle(0)
+
+
 def servo_test():
 # Set GPIO numbering mode
     GPIO.setmode(GPIO.BOARD)
